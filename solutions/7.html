@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
     <meta charset="UTF-8">
     <title> 
 Problem 
@@ -8,9 +11,10 @@ Problem
 </head>
 <body>
 
+    <h3>Problem Description Link</h3>
     <ul><li><a href="https://leetcode.com/problems/reverse-integer">LeetCode Link</a></li></ul>
     <h3>Problem Code</h3>
-    # [7] Reverse Integer
+    <pre><code class="language-python"># [7] Reverse Integer
 
 import random
 from typing import Optional, Union, Any, List, Tuple, Set, Dict
@@ -24,13 +28,13 @@ class Problem7(ProblemInterface):
     name = &#39;reverse-integer&#39;
 
     @ProblemInterface.time_check(debug_mode)
-    def get_reverse(self, x: int, digit=0) -&amp;gt; (int, int):
+    def get_reverse(self, x: int, digit=0) -&gt; (int, int):
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
-        if x &amp;lt; 0:
+        if x &lt; 0:
             answer = list(self.get_reverse(-x))
             answer[0] = -1 * answer[0]
             return tuple(answer)
-        if x &amp;lt; 10:
+        if x &lt; 10:
             return x, digit+1
         else:
             head = x % 10
@@ -38,28 +42,28 @@ class Problem7(ProblemInterface):
             return head * 10**digit + tail, digit+1
 
     @ProblemInterface.time_check(debug_mode)
-    def solution(self, x: int) -&amp;gt; int:
+    def solution(self, x: int) -&gt; int:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
         answer = self.get_reverse(x)[0]
-        return answer if -(2 ** 31) &amp;lt;= answer &amp;lt; 2 ** 31 else 0
+        return answer if -(2 ** 31) &lt;= answer &lt; 2 ** 31 else 0
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution(self, x: int) -&amp;gt; int:
+    def comparison_solution(self, x: int) -&gt; int:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
-        if x &amp;lt; 0:
+        if x &lt; 0:
             return -self.comparison_solution(-x)
         else:
             answer = int(str(x)[::-1])
-            return answer if -(2 ** 31) &amp;lt;= answer &amp;lt; 2 ** 31 else 0
+            return answer if -(2 ** 31) &lt;= answer &lt; 2 ** 31 else 0
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution2(self, x: int) -&amp;gt; int:
+    def comparison_solution2(self, x: int) -&gt; int:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
-        if x &amp;lt; 0:
+        if x &lt; 0:
             return -self.comparison_solution2(-x)
         else:
             answer = int(&#39;&#39;.join(reversed(str(x))))
-            return answer if -(2 ** 31) &amp;lt;= answer &amp;lt; 2 ** 31 else 0
+            return answer if -(2 ** 31) &lt;= answer &lt; 2 ** 31 else 0
 
     def test_one_random(self, num_max=2 ** 31):
         num = random.randint(-num_max, num_max)
@@ -69,7 +73,8 @@ class Problem7(ProblemInterface):
 
         print(answer1, answer2)
         assert answer1 == answer2
-
+</code></pre>
+    <script src="/static/prism.js"></script>
 
 </body>
 </html>

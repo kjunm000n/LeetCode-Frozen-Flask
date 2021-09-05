@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
     <meta charset="UTF-8">
     <title> 
 Problem 
@@ -8,9 +11,10 @@ Problem
 </head>
 <body>
 
+    <h3>Problem Description Link</h3>
     <ul><li><a href="https://leetcode.com/problems/add-two-numbers-2">LeetCode Link</a></li></ul>
     <h3>Problem Code</h3>
-    # [2] Add Two Numbers 2
+    <pre><code class="language-python"># [2] Add Two Numbers 2
 
 import random
 from typing import Optional, Union, Any, List, Tuple, Set, Dict
@@ -27,10 +31,10 @@ class Problem2(ProblemInterface):
         def __init__(self, val=0, next=None):
             self.val = val
             self.next = next
-            if not 0 &amp;lt;= val &amp;lt;= 9:
+            if not 0 &lt;= val &lt;= 9:
                 raise ValueError
 
-        def __eq__(self, other: &#39;ListNode&#39;) -&amp;gt; bool:
+        def __eq__(self, other: &#39;ListNode&#39;) -&gt; bool:
             if self.val != other.val:
                 return False
             else:
@@ -44,7 +48,7 @@ class Problem2(ProblemInterface):
         def __repr__(self):
             return (self.next.__repr__() + str(self.val)) if self.next else str(self.val)
 
-    def sum_ListNode(self, n1: ListNode, n2: ListNode, carry: int, return_type: Any) -&amp;gt; (Union[ListNode, int], int):
+    def sum_ListNode(self, n1: ListNode, n2: ListNode, carry: int, return_type: Any) -&gt; (Union[ListNode, int], int):
         u&#34;&#34;&#34; time complexity: O(1) &#34;&#34;&#34;
         sum_val = (n1.val + n2.val + carry)
         if return_type == self.ListNode:
@@ -55,7 +59,7 @@ class Problem2(ProblemInterface):
             raise ValueError
 
     @ProblemInterface.time_check(debug_mode)
-    def solution(self, l1: Optional[ListNode], l2: Optional[ListNode]) -&amp;gt; Optional[ListNode]:
+    def solution(self, l1: Optional[ListNode], l2: Optional[ListNode]) -&gt; Optional[ListNode]:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
         curr_node1, curr_node2, carry = l1, l2, 0
         head_node, next_carry = self.sum_ListNode(curr_node1, curr_node2, carry, self.ListNode)
@@ -78,13 +82,13 @@ class Problem2(ProblemInterface):
 
         return head_node
 
-    def int_to_ListNode(self, val: int) -&amp;gt; ListNode:
+    def int_to_ListNode(self, val: int) -&gt; ListNode:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
         head_node = self.ListNode(val=val % 10)
         prev_node = head_node
         while True:
             val //= 10
-            if val &amp;lt;= 0:
+            if val &lt;= 0:
                 break
             next_node = self.ListNode(val=val % 10)
             prev_node.next = next_node
@@ -93,11 +97,11 @@ class Problem2(ProblemInterface):
         return head_node
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution(self, l1: Optional[ListNode], l2: Optional[ListNode]) -&amp;gt; Optional[ListNode]:
+    def comparison_solution(self, l1: Optional[ListNode], l2: Optional[ListNode]) -&gt; Optional[ListNode]:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
         return self.int_to_ListNode((self.ListNode_to_int(l1) + self.ListNode_to_int(l2)))
 
-    def ListNode_to_int(self, curr_node: ListNode) -&amp;gt; int:
+    def ListNode_to_int(self, curr_node: ListNode) -&gt; int:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
         sum_val = curr_node.val
         next_node = curr_node.next
@@ -108,7 +112,7 @@ class Problem2(ProblemInterface):
             i += 1
         return sum_val
 
-    def int_list_to_ListNode(self, lst: List[int]) -&amp;gt; ListNode:
+    def int_list_to_ListNode(self, lst: List[int]) -&gt; ListNode:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
         next_node = self.ListNode(lst.pop())
         while lst:
@@ -117,7 +121,7 @@ class Problem2(ProblemInterface):
         return next_node
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution2(self, l1: Optional[ListNode], l2: Optional[ListNode]) -&amp;gt; Optional[ListNode]:
+    def comparison_solution2(self, l1: Optional[ListNode], l2: Optional[ListNode]) -&gt; Optional[ListNode]:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
         curr_node1, curr_node2, sums, carry = l1, l2, [], 0
         while curr_node1 or curr_node2 or carry:
@@ -136,7 +140,8 @@ class Problem2(ProblemInterface):
         answer2 = self.comparison_solution2(l1, l2)
 
         assert answer1 == answer2
-
+</code></pre>
+    <script src="/static/prism.js"></script>
 
 </body>
 </html>

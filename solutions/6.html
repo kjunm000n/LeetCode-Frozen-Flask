@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
     <meta charset="UTF-8">
     <title> 
 Problem 
@@ -8,9 +11,10 @@ Problem
 </head>
 <body>
 
+    <h3>Problem Description Link</h3>
     <ul><li><a href="https://leetcode.com/problems/zigzag-conversion">LeetCode Link</a></li></ul>
     <h3>Problem Code</h3>
-    # [6] ZigZag Conversion
+    <pre><code class="language-python"># [6] ZigZag Conversion
 
 import string
 import random
@@ -25,7 +29,7 @@ class Problem6(ProblemInterface):
     name = &#39;zigzag-conversion&#39;
 
     @ProblemInterface.time_check(debug_mode)
-    def solution(self, s: str, numRows: int) -&amp;gt; str:
+    def solution(self, s: str, numRows: int) -&gt; str:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
         answer = &#39;&#39;
         if numRows == 1:
@@ -42,7 +46,7 @@ class Problem6(ProblemInterface):
         return answer
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution(self, s: str, numRows: int) -&amp;gt; str:
+    def comparison_solution(self, s: str, numRows: int) -&gt; str:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
         if numRows == 1:
             return s
@@ -66,7 +70,8 @@ class Problem6(ProblemInterface):
         if debug_mode:
             print(answer1, answer2)
         assert answer1 == answer2
-
+</code></pre>
+    <script src="/static/prism.js"></script>
 
 </body>
 </html>

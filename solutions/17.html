@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
     <meta charset="UTF-8">
     <title> 
 Problem 
@@ -8,9 +11,10 @@ Problem
 </head>
 <body>
 
+    <h3>Problem Description Link</h3>
     <ul><li><a href="https://leetcode.com/problems/letter-combinations-of-a-phone-number">LeetCode Link</a></li></ul>
     <h3>Problem Code</h3>
-    # [17] Letter Combinations of a Phone Number
+    <pre><code class="language-python"># [17] Letter Combinations of a Phone Number
 
 import random
 from typing import Optional, Union, Any, List, Tuple, Set, Dict
@@ -25,7 +29,7 @@ class Problem17(ProblemInterface):
     name = &#39;letter-combinations-of-a-phone-number&#39;
 
     @ProblemInterface.time_check(debug_mode)
-    def solution(self, digits: str) -&amp;gt; List[str]:
+    def solution(self, digits: str) -&gt; List[str]:
         u&#34;&#34;&#34; time complexity: O(n^k) &#34;&#34;&#34;
         answer = []
         letter_dic = {&#39;2&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;],
@@ -48,7 +52,7 @@ class Problem17(ProblemInterface):
         return answer
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution(self, digits: str) -&amp;gt; List[str]:
+    def comparison_solution(self, digits: str) -&gt; List[str]:
         u&#34;&#34;&#34; time complexity: O(n^k) &#34;&#34;&#34;
         answer = []
         letter_dic = {&#39;2&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;],
@@ -74,7 +78,8 @@ class Problem17(ProblemInterface):
         answer2 = self.comparison_solution(digits)
 
         assert set(answer1) == set(answer2)
-
+</code></pre>
+    <script src="/static/prism.js"></script>
 
 </body>
 </html>

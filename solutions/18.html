@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
     <meta charset="UTF-8">
     <title> 
 Problem 
@@ -8,9 +11,10 @@ Problem
 </head>
 <body>
 
+    <h3>Problem Description Link</h3>
     <ul><li><a href="https://leetcode.com/problems/4sum">LeetCode Link</a></li></ul>
     <h3>Problem Code</h3>
-    # [18] 4Sum
+    <pre><code class="language-python"># [18] 4Sum
 
 import random
 from typing import Optional, Union, Any, List, Tuple, Set, Dict
@@ -26,7 +30,7 @@ class Problem18(ProblemInterface):
     name = &#39;4sum&#39;
 
     @ProblemInterface.time_check(debug_mode)
-    def solution(self, nums: List[int], target: int) -&amp;gt; List[List[int]]:
+    def solution(self, nums: List[int], target: int) -&gt; List[List[int]]:
         u&#34;&#34;&#34; time complexity: O(n^3) &#34;&#34;&#34;
         answer_set = set()
         nums = sorted(nums)
@@ -38,16 +42,16 @@ class Problem18(ProblemInterface):
                         answer_set.add((nums[k], nums[i], nums[j], nums[l]))
                         l -= 1
                         k += 1
-                    elif nums[i] + nums[j] + nums[k] + nums[l] &amp;gt; target:
+                    elif nums[i] + nums[j] + nums[k] + nums[l] &gt; target:
                         l -= 1
-                    elif nums[i] + nums[j] + nums[k] + nums[l] &amp;lt; target:
+                    elif nums[i] + nums[j] + nums[k] + nums[l] &lt; target:
                         k += 1
-                    if not k &amp;lt; i &amp;lt; j &amp;lt; l:
+                    if not k &lt; i &lt; j &lt; l:
                         break
         return [list(answer) for answer in answer_set]
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution(self, nums: List[int], target: int) -&amp;gt; List[List[int]]:
+    def comparison_solution(self, nums: List[int], target: int) -&gt; List[List[int]]:
         u&#34;&#34;&#34; time complexity: O(n^4) &#34;&#34;&#34;
         answer_set = set()
         for i, j, k, l in combinations(nums, 4):
@@ -64,7 +68,8 @@ class Problem18(ProblemInterface):
         answer2 = self.comparison_solution(nums, target)
 
         assert sorted(answer1) == sorted(answer2)
-
+</code></pre>
+    <script src="/static/prism.js"></script>
 
 </body>
 </html>

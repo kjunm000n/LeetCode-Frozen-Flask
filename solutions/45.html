@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
     <meta charset="UTF-8">
     <title> 
 Problem 
@@ -8,9 +11,10 @@ Problem
 </head>
 <body>
 
+    <h3>Problem Description Link</h3>
     <ul><li><a href="https://leetcode.com/problems/jump-game-ii">LeetCode Link</a></li></ul>
     <h3>Problem Code</h3>
-    # [45] Jump Game II
+    <pre><code class="language-python"># [45] Jump Game II
 
 import random
 from typing import Optional, Union, Any, List, Tuple, Set, Dict
@@ -24,25 +28,25 @@ class Problem45(ProblemInterface):
     name = &#39;jump-game-ii&#39;
 
     @ProblemInterface.time_check(debug_mode)
-    def solution(self, nums: List[int]) -&amp;gt; int:
+    def solution(self, nums: List[int]) -&gt; int:
         u&#34;&#34;&#34; time complexity: O(n) &#34;&#34;&#34;
         min_jump, curr_pos = 0, 0
         while True:
             if curr_pos == len(nums)-1:
                 break
-            if nums[curr_pos] + curr_pos &amp;gt;= len(nums)-1:
+            if nums[curr_pos] + curr_pos &gt;= len(nums)-1:
                 min_jump += 1
                 break
             next_pos = curr_pos
             for i in range(1, min(nums[curr_pos] + 1, len(nums) - curr_pos)):
-                if nums[next_pos] + next_pos &amp;lt; nums[curr_pos + i] + curr_pos + i:
+                if nums[next_pos] + next_pos &lt; nums[curr_pos + i] + curr_pos + i:
                     next_pos = curr_pos + i
             curr_pos = next_pos
             min_jump += 1
         return min_jump
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution(self, nums: List[int]) -&amp;gt; int:
+    def comparison_solution(self, nums: List[int]) -&gt; int:
         u&#34;&#34;&#34; time complexity: O(n^2) &#34;&#34;&#34;
         min_jump = [len(nums) for _ in nums]
         min_jump[0] = 0
@@ -65,7 +69,8 @@ class Problem45(ProblemInterface):
         answer2 = self.comparison_solution(nums)
 
         assert answer1 == answer2
-
+</code></pre>
+    <script src="/static/prism.js"></script>
 
 </body>
 </html>

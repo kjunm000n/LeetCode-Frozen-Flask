@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
     <meta charset="UTF-8">
     <title> 
 Problem 
@@ -8,9 +11,10 @@ Problem
 </head>
 <body>
 
+    <h3>Problem Description Link</h3>
     <ul><li><a href="https://leetcode.com/problems/3sum-closest">LeetCode Link</a></li></ul>
     <h3>Problem Code</h3>
-    # [16] 3Sum Closest
+    <pre><code class="language-python"># [16] 3Sum Closest
 
 import random
 from typing import Optional, Union, Any, List, Tuple, Set, Dict
@@ -26,31 +30,31 @@ class Problem16(ProblemInterface):
     name = &#39;3sum-closest&#39;
 
     @ProblemInterface.time_check(debug_mode)
-    def solution(self, nums: List[int], target: int) -&amp;gt; List[List[int]]:
+    def solution(self, nums: List[int], target: int) -&gt; List[List[int]]:
         u&#34;&#34;&#34; time complexity: O(n^2) &#34;&#34;&#34;
         answer = 103001
         nums = sorted(nums)
         for i in range(1, len(nums)-1):
             j, k = 0, len(nums)-1
             while True:
-                if abs((nums[i]+nums[j]+nums[k]) - target) &amp;lt; abs(answer - target):
+                if abs((nums[i]+nums[j]+nums[k]) - target) &lt; abs(answer - target):
                     answer = nums[i]+nums[j]+nums[k]
-                if nums[i]+nums[j]+nums[k] &amp;gt; target:
+                if nums[i]+nums[j]+nums[k] &gt; target:
                     k -= 1
-                elif nums[i]+nums[j]+nums[k] &amp;lt; target:
+                elif nums[i]+nums[j]+nums[k] &lt; target:
                     j += 1
                 else:
                     return answer
-                if not j &amp;lt; i &amp;lt; k:
+                if not j &lt; i &lt; k:
                     break
         return answer
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution(self, nums: List[int], target: int) -&amp;gt; List[List[int]]:
+    def comparison_solution(self, nums: List[int], target: int) -&gt; List[List[int]]:
         u&#34;&#34;&#34; time complexity: O(n^3) &#34;&#34;&#34;
         answer = 103001
         for i, j, k in combinations(nums, 3):
-            if abs(i + j + k - target) &amp;lt; abs(answer - target):
+            if abs(i + j + k - target) &lt; abs(answer - target):
                 answer = i + j + k
                 if answer == target:
                     return answer
@@ -63,7 +67,8 @@ class Problem16(ProblemInterface):
         answer2 = self.comparison_solution(nums, target)
 
         assert abs(target - answer1) == abs(target - answer2)
-
+</code></pre>
+    <script src="/static/prism.js"></script>
 
 </body>
 </html>

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
     <meta charset="UTF-8">
     <title> 
 Problem 
@@ -8,9 +11,10 @@ Problem
 </head>
 <body>
 
+    <h3>Problem Description Link</h3>
     <ul><li><a href="https://leetcode.com/problems/two-sum">LeetCode Link</a></li></ul>
     <h3>Problem Code</h3>
-    # [1] Two Sum
+    <pre><code class="language-python"># [1] Two Sum
 
 import random
 from typing import Optional, Union, Any, List, Tuple, Set, Dict
@@ -23,7 +27,7 @@ class Problem1(ProblemInterface):
     difficulty = Difficulty.Easy
     name = &#39;two-sum&#39;
 
-    def get_num_dict(self, nums: List[int]) -&amp;gt; Dict[int, List[int]]:
+    def get_num_dict(self, nums: List[int]) -&gt; Dict[int, List[int]]:
         u&#34;&#34;&#34;save indexes for each value / time complexity: O(n) &#34;&#34;&#34;
         num_dict = dict()
         for i, num in enumerate(nums):
@@ -34,16 +38,16 @@ class Problem1(ProblemInterface):
         return num_dict
 
     @ProblemInterface.time_check(debug_mode)
-    def solution(self, nums: List[int], target: int) -&amp;gt; List[int]:
+    def solution(self, nums: List[int], target: int) -&gt; List[int]:
         u&#34;&#34;&#34; time complexity: O(nlog(n)) &#34;&#34;&#34;
         answer = []
         num_dict = self.get_num_dict(nums)
         nums = sorted(nums)
         back_index = len(nums) - 1
         for front_index, num in enumerate(nums):
-            if front_index &amp;gt;= back_index:
+            if front_index &gt;= back_index:
                 break
-            while num + nums[back_index] &amp;gt;= target and front_index &amp;lt; back_index:
+            while num + nums[back_index] &gt;= target and front_index &lt; back_index:
                 if num + nums[back_index] == target:
                     if num != nums[back_index]:
                         return [num_dict[num][0], num_dict[nums[back_index]][0]]
@@ -53,7 +57,7 @@ class Problem1(ProblemInterface):
         return answer
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution(self, nums: List[int], target: int) -&amp;gt; List[int]:
+    def comparison_solution(self, nums: List[int], target: int) -&gt; List[int]:
         u&#34;&#34;&#34; time complexity: O(n^2) &#34;&#34;&#34;
         for i, num1 in enumerate(nums):
             for j in range(i+1, len(nums)):
@@ -78,7 +82,8 @@ class Problem1(ProblemInterface):
         assert answer1[0] != answer1[1]
         assert sum([nums[i] for i in answer2]) == target
         assert answer2[0] != answer2[1]
-
+</code></pre>
+    <script src="/static/prism.js"></script>
 
 </body>
 </html>

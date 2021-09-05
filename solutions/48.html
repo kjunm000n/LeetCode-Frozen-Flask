@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
     <meta charset="UTF-8">
     <title> 
 Problem 
@@ -8,9 +11,10 @@ Problem
 </head>
 <body>
 
+    <h3>Problem Description Link</h3>
     <ul><li><a href="https://leetcode.com/problems/rotate-image">LeetCode Link</a></li></ul>
     <h3>Problem Code</h3>
-    # [48] Rotate Image
+    <pre><code class="language-python"># [48] Rotate Image
 
 import copy
 import random
@@ -25,7 +29,7 @@ class Problem48(ProblemInterface):
     name = &#39;rotate-image&#39;
 
     @ProblemInterface.time_check(debug_mode)
-    def solution(self, matrix: List[List[int]]) -&amp;gt; None:
+    def solution(self, matrix: List[List[int]]) -&gt; None:
         u&#34;&#34;&#34; time complexity: O(n^2) &#34;&#34;&#34;
         n = len(matrix)
         for i in range((n + 1) // 2):
@@ -34,7 +38,7 @@ class Problem48(ProblemInterface):
                     = matrix[i][j], matrix[j][-i-1], matrix[-i-1][-j-1], matrix[-j-1][i]
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution(self, matrix: List[List[int]]) -&amp;gt; None:
+    def comparison_solution(self, matrix: List[List[int]]) -&gt; None:
         u&#34;&#34;&#34; time complexity: O(n^2) &#34;&#34;&#34;
         temp_matrix = copy.deepcopy(matrix)
         n = len(matrix)
@@ -51,7 +55,8 @@ class Problem48(ProblemInterface):
         self.comparison_solution(answer2)
 
         assert answer1 == answer2
-
+</code></pre>
+    <script src="/static/prism.js"></script>
 
 </body>
 </html>

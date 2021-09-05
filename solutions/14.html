@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
     <meta charset="UTF-8">
     <title> 
 Problem 
@@ -8,9 +11,10 @@ Problem
 </head>
 <body>
 
+    <h3>Problem Description Link</h3>
     <ul><li><a href="https://leetcode.com/problems/longest-common-prefix">LeetCode Link</a></li></ul>
     <h3>Problem Code</h3>
-    # [14] Longest Common Prefix
+    <pre><code class="language-python"># [14] Longest Common Prefix
 
 import random
 import string
@@ -25,7 +29,7 @@ class Problem14(ProblemInterface):
     name = &#39;longest-common-prefix&#39;
 
     @ProblemInterface.time_check(debug_mode)
-    def solution(self, strs: List[str]) -&amp;gt; str:
+    def solution(self, strs: List[str]) -&gt; str:
         u&#34;&#34;&#34; time complexity: O(mn) &#34;&#34;&#34;
         answer = &#39;&#39;
         for chars in zip(*strs):
@@ -35,14 +39,14 @@ class Problem14(ProblemInterface):
         return answer
 
     @ProblemInterface.time_check(debug_mode)
-    def comparison_solution(self, strs: List[str]) -&amp;gt; str:
+    def comparison_solution(self, strs: List[str]) -&gt; str:
         u&#34;&#34;&#34; time complexity: O(mn) &#34;&#34;&#34;
         answer = &#39;&#39;
         pos = 0
         while strs:
             prev = None
             for i in range(len(strs)):
-                if pos &amp;gt;= len(strs[i]):
+                if pos &gt;= len(strs[i]):
                     return answer
                 if i == 0:
                     prev = strs[i][pos]
@@ -62,7 +66,8 @@ class Problem14(ProblemInterface):
         if debug_mode:
            print(answer1, answer2)
         assert answer1 == answer2
-
+</code></pre>
+    <script src="/static/prism.js"></script>
 
 </body>
 </html>
