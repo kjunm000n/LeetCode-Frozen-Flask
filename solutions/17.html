@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link href="/static/prism.css" rel="stylesheet" />
+
+    <meta charset="UTF-8">
+    <title> 
+Problem 17
+ </title>
+</head>
+<body>
+
+    <h3>Problem Description Link</h3>
+    <ul><li><a href="https://leetcode.com/problems/letter-combinations-of-a-phone-number">LeetCode Link (Problem 17)</a></li></ul>
+    <h3>Problem Code</h3>
+    <pre><code class="language-python"># [17] Letter Combinations of a Phone Number
+
+import random
+from typing import Optional, Union, Any, List, Tuple, Set, Dict
+import itertools
+
+from definitions import debug_mode
+from solutions.interface import ProblemInterface, Difficulty
+
+
+class Problem17(ProblemInterface):
+    difficulty = Difficulty.Medium
+    name = &#39;letter-combinations-of-a-phone-number&#39;
+
+    @ProblemInterface.time_check(debug_mode)
+    def solution(self, digits: str) -&gt; List[str]:
+        u&#34;&#34;&#34; time complexity: O(n^k) &#34;&#34;&#34;
+        answer = []
+        letter_dic = {&#39;2&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;],
+                      &#39;3&#39;: [&#39;d&#39;, &#39;e&#39;, &#39;f&#39;],
+                      &#39;4&#39;: [&#39;g&#39;, &#39;h&#39;, &#39;i&#39;],
+                      &#39;5&#39;: [&#39;j&#39;, &#39;k&#39;, &#39;l&#39;],
+                      &#39;6&#39;: [&#39;m&#39;, &#39;n&#39;, &#39;o&#39;],
+                      &#39;7&#39;: [&#39;p&#39;, &#39;q&#39;, &#39;r&#39;, &#39;s&#39;],
+                      &#39;8&#39;: [&#39;t&#39;, &#39;u&#39;, &#39;v&#39;],
+                      &#39;9&#39;: [&#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;],
+                      }
+        for digit in digits:
+            if not answer:
+                answer = letter_dic[digit]
+            else:
+                temp, answer = answer, []
+                for s in temp:
+                    for s2 in letter_dic[digit]:
+                        answer.append(s + s2)
+        return answer
+
+    @ProblemInterface.time_check(debug_mode)
+    def comparison_solution(self, digits: str) -&gt; List[str]:
+        u&#34;&#34;&#34; time complexity: O(n^k) &#34;&#34;&#34;
+        answer = []
+        letter_dic = {&#39;2&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;],
+                      &#39;3&#39;: [&#39;d&#39;, &#39;e&#39;, &#39;f&#39;],
+                      &#39;4&#39;: [&#39;g&#39;, &#39;h&#39;, &#39;i&#39;],
+                      &#39;5&#39;: [&#39;j&#39;, &#39;k&#39;, &#39;l&#39;],
+                      &#39;6&#39;: [&#39;m&#39;, &#39;n&#39;, &#39;o&#39;],
+                      &#39;7&#39;: [&#39;p&#39;, &#39;q&#39;, &#39;r&#39;, &#39;s&#39;],
+                      &#39;8&#39;: [&#39;t&#39;, &#39;u&#39;, &#39;v&#39;],
+                      &#39;9&#39;: [&#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;],
+                      }
+        if not digits:
+            return answer
+        vectors = [letter_dic[digit] for digit in digits]
+        answer = [&#39;&#39;.join(comb) for comb in itertools.product(*vectors)]
+        return answer
+
+    def test_one_random(self):
+        digits_str = &#34;23456789&#34;
+        digits = &#39;&#39;.join([random.choice(digits_str) for _ in range(random.randint(0,4))])
+
+        answer1 = self.solution(digits)
+        answer2 = self.comparison_solution(digits)
+
+        assert set(answer1) == set(answer2)
+</code></pre>
+    <script src="/static/prism.js"></script>
+
+</body>
+</html>
